@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The Living Blueprint - New York Academy of Sciences 2026-2027 Proof of Work by Mustafa Enes Kayacı. Interactive BCI, AI Public Health Fact-Checker, and Green Retrofit Geospatial simulations." />
+  <meta name="author" content="Mustafa Enes Kayacı" />
+  <title>The Living Blueprint | NYAS 2026-2027 Proof of Work</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Google Fonts: Editorial Serif, Modern Sans, Technical Monospace -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
+
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Earthy Minimalist Blueprint Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Living Canvas Background & Paper Texture -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="blueprint-grid-overlay" aria-hidden="true"></div>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="#hero" class="header-brand">
+        <span class="brand-title">The Living Blueprint</span>
+        <span class="brand-edition"><span class="status-dot"></span> NYAS 2026–27</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link active">Overview</a></li>
+          <li><a href="#tool-bci" class="nav-link">BrainTech</a></li>
+          <li><a href="#tool-fact" class="nav-link">Fact-Check</a></li>
+          <li><a href="#tool-retrofit" class="nav-link">Retrofit</a></li>
+          <li><a href="#profile" class="nav-link">Profile</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="audio-toggle-btn" class="audio-toggle-btn active" title="Toggle tactile audio">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+          <span>Sound: ON</span>
+        </button>
+        <a href="#profile" class="btn btn-primary btn-nav">Team Up</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ====================================================================
+         Hero Section
+         ==================================================================== -->
+    <section id="hero" class="hero-section">
+      <div class="container">
+        <div class="hero-layout">
+          <div class="hero-content">
+            <div class="hero-dossier-stamp">
+              <span class="blueprint-stamp">SPECIFICATION NO. NYAS-2026-POW</span>
+              <span class="mono" style="font-size: 0.75rem; color: var(--text-clay);">AUTHOR: MUSTAFA ENES KAYACI</span>
+            </div>
+
+            <h1 class="hero-title">
+              New York Academy of Sciences <br />
+              <span class="highlight">2026–2027</span> | Proof of Work
+            </h1>
+
+            <p class="hero-subtitle">
+              A living, interactive portfolio built to practically demonstrate software engineering, AI architecture, BCI systems, and sustainable geospatial computing. Designed to establish immediate credibility for the NYAS Launchpad sprint.
+            </p>
+
+            <div class="author-card-mini">
+              <div class="author-avatar-stamp">ME</div>
+              <div class="author-meta">
+                <h4>Mustafa Enes Kayacı</h4>
+                <p>AI Engineer & Cloud Architect // Prospective NYAS Technical Lead (CTO)</p>
+              </div>
+            </div>
+
+            <div class="hero-cta-group">
+              <a href="#tools" class="btn btn-primary">
+                <span>Explore Interactive Proofs</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+              </a>
+              <a href="#profile" class="btn btn-secondary">
+                <span>Read Developer Pitch</span>
+              </a>
+              <button id="export-dossier-btn" class="btn btn-secondary" title="Download text dossier summary">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Export Dossier (.txt)</span>
+              </button>
+            </div>
+
+            <!-- Key Metrics Bar -->
+            <div class="hero-metrics-bar">
+              <div class="metric-item">
+                <div class="metric-label">Challenge Simulations</div>
+                <div class="metric-val">3 Live Tools</div>
+              </div>
+              <div class="metric-item">
+                <div class="metric-label">Execution Latency</div>
+                <div class="metric-val">0 ms (Client-Side)</div>
+              </div>
+              <div class="metric-item">
+                <div class="metric-label">Target Audience</div>
+                <div class="metric-val">Peers & Mentors</div>
+              </div>
+              <div class="metric-item">
+                <div class="metric-label">Visualizer Engine</div>
+                <div class="metric-val">60 FPS Fluid Canvas</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Section II: Interactive Tools Showcase
+         ==================================================================== -->
+    <section id="tools" class="tools-section">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="blueprint-stamp">THE THREE NYAS CHALLENGE PROOFS</span>
+          <h2 class="section-title">Interactive Engineering Simulations</h2>
+          <p class="section-desc">
+            Rather than passive descriptions, each challenge is gamified into a responsive, real-time functional module demonstrating specialized technical architecture.
+          </p>
+        </div>
+
+        <div class="tools-grid">
+
+          <!-- TOOL 1: BrainTech (BCI Neural Sync) -->
+          <article id="tool-bci" class="tool-card">
+            <div class="tool-header">
+              <div>
+                <div class="tool-badge-group">
+                  <span class="tool-tag">CHALLENGE 01</span>
+                  <span class="tool-tag">NEURAL ENGINEERING</span>
+                  <span class="tool-tag">BCI DECODING</span>
+                </div>
+                <h3 class="tool-title">BrainTech: Neural Sync Interface</h3>
+                <p class="tool-lead">Visualizing raw EEG artifact filtering, phase coherence, and intention extraction.</p>
+              </div>
+              <span class="blueprint-stamp">REAL-TIME SIMULATION</span>
+            </div>
+
+            <div class="tool-body">
+              <div class="bci-workspace">
+                
+                <!-- Canvas Simulation Container -->
+                <div class="bci-canvas-container">
+                  <canvas id="bci-canvas"></canvas>
+                  
+                  <div class="bci-overlay-hud">
+                    <div class="bci-hud-badge">
+                      <span>CHANNELS: 48 EEG</span>
+                      <span>|</span>
+                      <span>STATE: <span id="bci-hud-state" class="bci-hud-state">RAW EEG // CHAOTIC</span></span>
+                    </div>
+                    <div class="bci-hud-badge">
+                      <span>SAMPLE RATE: 1000 Hz</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Controls & Telemetry Panel -->
+                <div class="bci-controls-panel">
+                  <div>
+                    <span class="blueprint-stamp" style="margin-bottom: 8px;">TARGET CORTEX MODE</span>
+                    <div class="bci-mode-selector">
+                      <button class="bci-mode-btn active" data-mode="motor">Motor</button>
+                      <button class="bci-mode-btn" data-mode="visual">Visual</button>
+                      <button class="bci-mode-btn" data-mode="executive">Executive</button>
+                    </div>
+                  </div>
+
+                  <div class="bci-telemetry-grid">
+                    <div class="telemetry-card">
+                      <div class="telemetry-label">Signal-To-Noise (SNR)</div>
+                      <div id="bci-snr-val" class="telemetry-value">-4.2 dB</div>
+                    </div>
+                    <div class="telemetry-card">
+                      <div class="telemetry-label">Phase-Lock (PLV)</div>
+                      <div id="bci-plv-val" class="telemetry-value">0.14</div>
+                    </div>
+                    <div class="telemetry-card">
+                      <div class="telemetry-label">Electrode Impedance</div>
+                      <div id="bci-imp-val" class="telemetry-value">24.6 kΩ</div>
+                    </div>
+                    <div class="telemetry-card">
+                      <div class="telemetry-label">Decoded Intent</div>
+                      <div id="bci-intent-val" class="telemetry-value" style="font-size: 0.85rem; line-height: 1.3;">Acquiring Baseline...</div>
+                    </div>
+                  </div>
+
+                  <!-- Tactile Hold to Calibrate Button -->
+                  <div class="calibrate-btn-wrap">
+                    <button id="bci-hold-btn" class="bci-hold-btn" type="button">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                      <span>PRESS & HOLD TO CALIBRATE</span>
+                      <div id="bci-progress-bar" class="bci-progress-bar"></div>
+                    </button>
+                    <p style="font-size: 0.72rem; color: var(--text-clay); margin-top: 8px; text-align: center;">
+                      Hold button to damp chaotic signal noise and lock geometric neural lattice onto cursor coordinates.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </article>
+
+          <!-- TOOL 2: Misinformation & AI in Public Health -->
+          <article id="tool-fact" class="tool-card">
+            <div class="tool-header">
+              <div>
+                <div class="tool-badge-group">
+                  <span class="tool-tag">CHALLENGE 02</span>
+                  <span class="tool-tag">PUBLIC HEALTH NLP</span>
+                  <span class="tool-tag">RAG FACT-CHECKING</span>
+                </div>
+                <h3 class="tool-title">Misinformation & AI: Scientific Verification Engine</h3>
+                <p class="tool-lead">Auditing clinical claims against biomedical corpora with RAG and hallucination detection.</p>
+              </div>
+              <span class="blueprint-stamp">PUBMED / WHO SIMULATION</span>
+            </div>
+
+            <div class="tool-body">
+              <div class="fact-checker-container">
+                
+                <!-- Query Box -->
+                <div class="fact-search-box">
+                  <div class="fact-input-wrap">
+                    <input 
+                      type="text" 
+                      id="fact-query-input" 
+                      class="fact-input" 
+                      placeholder="Enter a health claim to verify (e.g. 'Drinking bleach cures viral infections')..."
+                      value="Drinking bleach cures viral infections"
+                    />
+                    <button id="fact-verify-btn" class="btn btn-rust fact-verify-btn">
+                      <span>Verify Claim</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </button>
+                  </div>
+
+                  <!-- Quick Chips -->
+                  <div class="fact-quick-prompts">
+                    <span class="quick-prompt-label">Sample Claims:</span>
+                    <button class="prompt-chip" data-prompt="Drinking bleach cures viral infections">Bleach Ingestion</button>
+                    <button class="prompt-chip" data-prompt="mRNA vaccines alter human DNA">mRNA Vaccines & DNA</button>
+                    <button class="prompt-chip" data-prompt="Higher vitamin D levels reduce respiratory infection severity">Vitamin D & Respiratory</button>
+                    <button class="prompt-chip" data-prompt="Municipal water fluoridation calcifies pineal gland">Fluoride & Pineal</button>
+                  </div>
+                </div>
+
+                <!-- Scanning Pipeline State -->
+                <div id="fact-scanning-pane" class="fact-scanning-state">
+                  <div class="scanning-spinner"></div>
+                  <div id="scanning-step-text" class="scanning-steps">
+                    Parsing query syntax & tokenizing clinical terminology...
+                  </div>
+                </div>
+
+                <!-- Results Output Pane -->
+                <div id="fact-results-pane" class="fact-results-pane">
+                  <div class="fact-result-header">
+                    
+                    <!-- Circular Trust Score Gauge -->
+                    <div class="trust-gauge">
+                      <svg viewBox="0 0 100 100">
+                        <circle class="trust-gauge-bg" cx="50" cy="50" r="40"></circle>
+                        <circle id="trust-circle-fill" class="trust-gauge-fill" cx="50" cy="50" r="40"></circle>
+                      </svg>
+                      <div id="trust-score-num" class="trust-gauge-score">0%</div>
+                    </div>
+
+                    <div>
+                      <div id="fact-verdict-status" class="fact-verdict-status status-debunked">
+                        HIGH TOXICITY // HARMFUL MISINFORMATION
+                      </div>
+                      <h4 id="fact-verdict-title" class="fact-verdict-title">Debunked: Ingestion of Chemical Disinfectants Causes Severe Toxicity</h4>
+                      <p id="fact-verdict-summary" style="font-size: 0.95rem;">
+                        Chlorine dioxide and industrial bleach ingestions do not neutralize internal pathogens. Clinical literature documents corrosive mucosal damage, acute hemolysis, and renal failure upon consumption.
+                      </p>
+                    </div>
+
+                    <span class="blueprint-stamp">CONFIDENCE: 99.4%</span>
+                  </div>
+
+                  <div class="fact-details-grid">
+                    
+                    <!-- Cited Scientific Sources -->
+                    <div class="scientific-sources-box">
+                      <h4>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                        <span>Peer-Reviewed Clinical Sources</span>
+                      </h4>
+                      <div id="fact-sources-list">
+                        <!-- Populated dynamically via JS -->
+                      </div>
+                    </div>
+
+                    <!-- AI Hallucination & Evidence Audit -->
+                    <div class="hallucination-audit-box">
+                      <h4>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                        <span>NLP Hallucination & Bias Audit</span>
+                      </h4>
+                      <div class="audit-metrics-list">
+                        <div class="audit-metric-row">
+                          <span class="mono" style="color: var(--text-clay);">RAG Semantic Similarity</span>
+                          <span id="audit-rag-match" class="mono" style="font-weight: 700; color: var(--text-espresso);">99.4%</span>
+                        </div>
+                        <div class="audit-metric-row">
+                          <span class="mono" style="color: var(--text-clay);">Hallucination Risk</span>
+                          <span id="audit-hallucination" class="mono" style="font-weight: 700; color: var(--accent-rust);">Critical Distortion Flagged</span>
+                        </div>
+                        <div class="audit-metric-row">
+                          <span class="mono" style="color: var(--text-clay);">Scientific Consensus</span>
+                          <span id="audit-consensus" class="mono" style="font-weight: 700; color: var(--text-espresso);">0% (Disproven)</span>
+                        </div>
+                        <div class="audit-metric-row">
+                          <span class="mono" style="color: var(--text-clay);">Entity Extraction</span>
+                          <span id="audit-entities" class="mono" style="font-weight: 700; color: var(--text-espresso);">5 MeSH Term Tokens</span>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </article>
+
+          <!-- TOOL 3: Climatizing Infrastructure -->
+          <article id="tool-retrofit" class="tool-card">
+            <div class="tool-header">
+              <div>
+                <div class="tool-badge-group">
+                  <span class="tool-tag">CHALLENGE 03</span>
+                  <span class="tool-tag">SUSTAINABILITY</span>
+                  <span class="tool-tag">GEOSPATIAL RETROFIT</span>
+                </div>
+                <h3 class="tool-title">Climatizing Infrastructure: Green Retrofit Mapper</h3>
+                <p class="tool-lead">Simulating building energy decarbonization, solar potential, and heat pump upgrade ROI.</p>
+              </div>
+              <span class="blueprint-stamp">CARTOGRAPHIC SIMULATION</span>
+            </div>
+
+            <div class="tool-body">
+              <div class="retrofit-layout">
+                
+                <!-- Map Panel -->
+                <div class="map-card-panel">
+                  <div class="map-controls-bar">
+                    <span class="blueprint-stamp">SELECT TARGET REGION:</span>
+                    <div class="city-preset-pills">
+                      <button class="city-pill active" data-city="newyork">New York</button>
+                      <button class="city-pill" data-city="istanbul">Istanbul</button>
+                      <button class="city-pill" data-city="london">London</button>
+                      <button class="city-pill" data-city="dubai">Dubai</button>
+                      <button class="city-pill" data-city="tokyo">Tokyo</button>
+                      <button class="city-pill" data-city="berlin">Berlin</button>
+                    </div>
+                  </div>
+
+                  <div class="map-viewport-container">
+                    <div id="retrofit-map"></div>
+                    <div class="map-radar-indicator">
+                      <span class="status-dot"></span>
+                      <span>GEODETIC RADAR: ACTIVE</span>
+                    </div>
+                  </div>
+                  <p style="font-size: 0.75rem; color: var(--text-clay);">
+                    Tip: Click anywhere on the map to run a localized microclimate retrofit evaluation at custom coordinates.
+                  </p>
+                </div>
+
+                <!-- Retrofit Report Panel -->
+                <div class="retrofit-report-panel">
+                  <div class="report-location-stamp">
+                    <div>
+                      <h4 id="report-city-name" class="report-city-name">New York City, USA</h4>
+                      <div id="report-city-coords" class="report-coords">40.7128° N, -74.0060° E // ASHRAE 4A</div>
+                    </div>
+                    <span class="tool-tag" style="background: var(--accent-sage-light); color: var(--accent-sage);">NET-ZERO MODEL</span>
+                  </div>
+
+                  <!-- Metrics Stack -->
+                  <div class="report-metrics-stack">
+                    <div class="report-metric-card">
+                      <div class="rm-info">
+                        <h5>Rooftop Solar PV Viability</h5>
+                        <p>Available incident irradiance & panel yield</p>
+                      </div>
+                      <div class="rm-stat">
+                        <div id="rm-solar-val" class="rm-val">325.4 MWh/yr</div>
+                        <div id="rm-solar-sub" class="rm-sub">$45,556 offset</div>
+                      </div>
+                    </div>
+
+                    <div class="report-metric-card">
+                      <div class="rm-info">
+                        <h5>Heat Pump HVAC Upgrade ROI</h5>
+                        <p>Capital amortization & COP efficiency</p>
+                      </div>
+                      <div class="rm-stat">
+                        <div id="rm-hvac-val" class="rm-val">4.6 Years</div>
+                        <div id="rm-hvac-sub" class="rm-sub">COP 3.8 Seasonal</div>
+                      </div>
+                    </div>
+
+                    <div class="report-metric-card">
+                      <div class="rm-info">
+                        <h5>Carbon Avoidance Factor</h5>
+                        <p>Regional electrical grid emission delta</p>
+                      </div>
+                      <div class="rm-stat">
+                        <div id="rm-co2-val" class="rm-val">160.8 tCO₂e / yr</div>
+                        <div class="rm-sub">Equivalent to 35 vehicles</div>
+                      </div>
+                    </div>
+
+                    <div class="report-metric-card">
+                      <div class="rm-info">
+                        <h5>Green Subsidy & Rebate Alignment</h5>
+                        <div id="rm-rebate-val" style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-mocha); margin-top: 2px;">
+                          NY-Sun Incentive + IRA 25C ($12,400 est.)
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="report-metric-card">
+                      <div class="rm-info">
+                        <h5>Urban Heat Island Mitigation</h5>
+                        <div id="rm-heat-val" style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-mocha); margin-top: 2px;">
+                          +3.8°C baseline (mitigated by -1.4°C with green roof)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Sliders for What-If Analysis -->
+                  <div class="retrofit-sliders">
+                    <span class="blueprint-stamp">INTERACTIVE WHAT-IF SENSITIVITY:</span>
+                    
+                    <div class="slider-group">
+                      <div class="slider-label-row">
+                        <span>Total Building Floor Area</span>
+                        <strong id="val-floor-area">3,200 m²</strong>
+                      </div>
+                      <input type="range" id="slider-floor-area" class="slider-input" min="500" max="15000" step="100" value="3200" />
+                    </div>
+
+                    <div class="slider-group">
+                      <div class="slider-label-row">
+                        <span>Current Envelope Insulation</span>
+                        <strong id="val-insulation">Standard (R-25 Code)</strong>
+                      </div>
+                      <input type="range" id="slider-insulation" class="slider-input" min="1" max="3" step="1" value="2" />
+                    </div>
+
+                    <div class="slider-group">
+                      <div class="slider-label-row">
+                        <span>Target Net-Zero Benchmark Year</span>
+                        <strong id="val-netzero">2030</strong>
+                      </div>
+                      <input type="range" id="slider-netzero" class="slider-input" min="2027" max="2040" step="1" value="2030" />
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Section III: Who Am I? (The Developer Profile)
+         ==================================================================== -->
+    <section id="profile" class="profile-section">
+      <div class="container">
+        
+        <div class="profile-card">
+          
+          <!-- Sidebar -->
+          <div class="profile-sidebar">
+            <div class="profile-portrait-wrap">
+              <svg class="profile-portrait-svg" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" aria-label="Architectural drawing of Mustafa Enes Kayacı">
+                <defs>
+                  <clipPath id="portraitCircleClip">
+                    <circle cx="80" cy="80" r="73" />
+                  </clipPath>
+                  <radialGradient id="portraitPaperGrad" cx="50%" cy="40%" r="65%">
+                    <stop offset="0%" stop-color="#FDFBF7" />
+                    <stop offset="65%" stop-color="#EFE6D7" />
+                    <stop offset="100%" stop-color="#E5D6C2" />
+                  </radialGradient>
+                  <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#F5E8DB" />
+                    <stop offset="100%" stop-color="#E4D2BF" />
+                  </linearGradient>
+                  <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#38251B" />
+                    <stop offset="100%" stop-color="#1B110A" />
+                  </linearGradient>
+                  <linearGradient id="jacketGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#261A13" />
+                    <stop offset="100%" stop-color="#140D09" />
+                  </linearGradient>
+                </defs>
+
+                <g clip-path="url(#portraitCircleClip)">
+                  <!-- Parchment Background -->
+                  <rect width="160" height="160" fill="url(#portraitPaperGrad)" />
+
+                  <!-- Blueprint Drafting Geometry -->
+                  <circle cx="80" cy="80" r="70" fill="none" stroke="rgba(182, 84, 52, 0.22)" stroke-width="1" stroke-dasharray="4, 3" />
+                  <circle cx="80" cy="80" r="58" fill="none" stroke="rgba(92, 71, 56, 0.12)" stroke-width="0.8" />
+                  <line x1="80" y1="2" x2="80" y2="158" stroke="rgba(92, 71, 56, 0.1)" stroke-width="0.8" stroke-dasharray="2, 4" />
+                  <line x1="2" y1="80" x2="158" y2="80" stroke="rgba(92, 71, 56, 0.1)" stroke-width="0.8" stroke-dasharray="2, 4" />
+
+                  <!-- Neural BCI Vectors (Connecting Thought to Blueprint) -->
+                  <g stroke-linecap="round">
+                    <path d="M 88 44 L 114 32 L 128 36" fill="none" stroke="#B65434" stroke-width="1.2" stroke-opacity="0.75" />
+                    <circle cx="128" cy="36" r="2.4" fill="#B65434" />
+                    <path d="M 95 56 L 122 52 L 136 62" fill="none" stroke="#4B6B54" stroke-width="1.2" stroke-opacity="0.75" />
+                    <circle cx="136" cy="62" r="2" fill="#4B6B54" />
+                    <path d="M 68 40 L 46 30 L 32 38" fill="none" stroke="#BF7B2B" stroke-width="1.2" stroke-opacity="0.75" />
+                    <circle cx="32" cy="38" r="2.2" fill="#BF7B2B" />
+                    <path d="M 62 54 L 36 54 L 24 66" fill="none" stroke="#B65434" stroke-width="1.2" stroke-opacity="0.6" />
+                    <circle cx="24" cy="66" r="2" fill="#B65434" />
+                  </g>
+
+                  <!-- Shoulders & Coat -->
+                  <path d="M 18 165 C 22 134 46 118 70 116 L 80 118 L 90 116 C 114 118 138 134 142 165 Z" fill="url(#jacketGrad)" />
+                  <!-- Turtleneck Collar -->
+                  <path d="M 65 110 C 65 106 72 104 80 104 C 88 104 95 106 95 110 L 96 124 C 88 127 72 127 64 124 Z" fill="#1C120C" stroke="#3A281E" stroke-width="1" />
+
+                  <!-- Neck -->
+                  <path d="M 67 94 L 67 112 C 73 115 87 115 93 112 L 93 94 Z" fill="url(#skinGrad)" />
+                  <path d="M 67 100 C 73 103 87 103 93 100 L 93 112 C 87 115 73 115 67 112 Z" fill="rgba(60, 40, 25, 0.14)" />
+
+                  <!-- Ears -->
+                  <path d="M 51 72 C 47 72 47 82 51 86 C 53 87 54 83 54 78 Z" fill="#E6D3C0" stroke="#3A2518" stroke-width="1.2" />
+                  <path d="M 109 72 C 113 72 113 82 109 86 C 107 87 106 83 106 78 Z" fill="#E6D3C0" stroke="#3A2518" stroke-width="1.2" />
+
+                  <!-- Head Silhouette -->
+                  <path d="M 53 60 C 53 46 63 40 80 40 C 97 40 107 46 107 60 C 107 77 103 95 80 98 C 57 95 53 77 53 60 Z" fill="url(#skinGrad)" stroke="#2E1F15" stroke-width="1.4" />
+
+                  <!-- Modern Contoured Hair Structure -->
+                  <path d="M 48 56 C 47 40 61 28 80 27 C 99 27 112 36 112 52 C 112 56 110 61 108 63 C 106 55 102 46 95 43 C 85 39 69 41 58 50 C 55 52 52 56 48 56 Z" fill="url(#hairGrad)" stroke="#1A1009" stroke-width="1.5" />
+                  <path d="M 49 56 C 52 56 54 52 56 50 C 59 46 66 41 77 41 C 87 41 97 46 104 53 L 104 58 C 100 52 93 48 83 48 C 71 48 61 53 53 61 Z" fill="#24170F" />
+                  
+                  <!-- Architectural Hair Detail Hatching -->
+                  <path d="M 68 33 Q 78 37 88 33" fill="none" stroke="rgba(226, 161, 78, 0.45)" stroke-width="1" />
+                  <path d="M 72 37 Q 82 41 94 37" fill="none" stroke="rgba(226, 161, 78, 0.35)" stroke-width="0.8" />
+
+                  <!-- Eyebrows -->
+                  <path d="M 60 61 C 64 59 70 59 73 61" fill="none" stroke="#22160E" stroke-width="2" stroke-linecap="round" />
+                  <path d="M 87 61 C 90 59 96 59 100 61" fill="none" stroke="#22160E" stroke-width="2" stroke-linecap="round" />
+
+                  <!-- Eyes -->
+                  <ellipse cx="67" cy="67" rx="3" ry="3.5" fill="#22160E" />
+                  <circle cx="66" cy="66" r="1" fill="#FFFFFF" />
+                  <ellipse cx="93" cy="67" rx="3" ry="3.5" fill="#22160E" />
+                  <circle cx="92" cy="66" r="1" fill="#FFFFFF" />
+
+                  <!-- Geometric Glasses (Dark Walnut Architectural Frames) -->
+                  <rect x="57" y="60" width="19" height="15" rx="3.5" fill="rgba(255, 255, 255, 0.3)" stroke="#170F0A" stroke-width="2" />
+                  <rect x="84" y="60" width="19" height="15" rx="3.5" fill="rgba(255, 255, 255, 0.3)" stroke="#170F0A" stroke-width="2" />
+                  <path d="M 76 65 Q 80.5 63 85 65" fill="none" stroke="#170F0A" stroke-width="2" stroke-linecap="round" />
+                  <line x1="57" y1="65" x2="51" y2="67" stroke="#170F0A" stroke-width="1.8" stroke-linecap="round" />
+                  <line x1="103" y1="65" x2="109" y2="67" stroke="#170F0A" stroke-width="1.8" stroke-linecap="round" />
+                  <!-- Reflection on glass -->
+                  <line x1="60" y1="63" x2="67" y2="63" stroke="rgba(255, 255, 255, 0.75)" stroke-width="1.2" stroke-linecap="round" />
+                  <line x1="87" y1="63" x2="94" y2="63" stroke="rgba(255, 255, 255, 0.75)" stroke-width="1.2" stroke-linecap="round" />
+
+                  <!-- Nose Contour -->
+                  <path d="M 80 66 L 79 77 L 83 78" fill="none" stroke="#3A281E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+
+                  <!-- Confident Smile -->
+                  <path d="M 73 85 Q 80 89 87 85" fill="none" stroke="#3A281E" stroke-width="1.5" stroke-linecap="round" />
+
+                  <!-- Architectural Callout Stamp -->
+                  <rect x="42" y="142" width="76" height="14" rx="3" fill="#1C130D" fill-opacity="0.9" />
+                  <text x="80" y="152" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="600" fill="#E5D7C2" text-anchor="middle" letter-spacing="0.8">MUSTAFA ENES</text>
+                </g>
+
+                <!-- Outer Blueprint Frame Rings -->
+                <circle cx="80" cy="80" r="74" fill="none" stroke="#4A382A" stroke-width="2" />
+                <circle cx="80" cy="80" r="77" fill="none" stroke="rgba(182, 84, 52, 0.45)" stroke-width="0.8" stroke-dasharray="2, 3" />
+              </svg>
+            </div>
+            
+            <h3 class="profile-name">Mustafa Enes Kayacı</h3>
+            <div class="profile-title-tag">AI ENGINEER & CLOUD ARCHITECT</div>
+            
+            <span class="status-indicator" style="margin-bottom: 20px;">
+              <span class="status-dot"></span>
+              <span>AVAILABLE FOR SPRINT LEAD</span>
+            </span>
+
+            <p style="font-size: 0.85rem; color: var(--text-clay); margin-bottom: 20px;">
+              Prepared to lead the software architecture and AI implementation for top-tier NYAS 2026–2027 teams.
+            </p>
+
+            <div class="profile-socials">
+              <a href="https://github.com/MustafaEnes123" target="_blank" rel="noopener noreferrer" class="profile-link-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                <span>github.com/MustafaEnes123</span>
+              </a>
+              <a href="https://www.linkedin.com/in/mustafa-enes-kayaci/" target="_blank" rel="noopener noreferrer" class="profile-link-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                <span>LinkedIn Profile</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Main Bio & Pitch -->
+          <div class="profile-content">
+            
+            <div class="profile-pitch">
+              <span class="blueprint-stamp" style="margin-bottom: 10px;">TECHNICAL PITCH & CANDIDATE STATEMENT</span>
+              <h3>Bridging Deep Science & Robust Engineering</h3>
+              <p>
+                I approach complex STEM challenges not as theoretical exercises, but as operational software products. As an AI Engineer and Cloud Architect, my objective on the <strong>New York Academy of Sciences 2026–2027 Launchpad</strong> is to serve as the <strong>Technical Lead (CTO)</strong>—translating domain expertise in Public Health, Neuroscience, and Climate Infrastructure into production-ready software.
+              </p>
+              <p>
+                Whether building low-latency signal filtering for BrainTech BCI systems, implementing deterministic RAG fact-checking pipelines to fight health disinformation, or constructing geospatial energy models for sustainable urbanism, I deliver measurable code that works reliably in production.
+              </p>
+            </div>
+
+            <!-- Pitch Callout -->
+            <div class="pitch-callout">
+              <strong>Looking for a CTO who builds?</strong> If your team needs a technical architect who executes fast, writes resilient code, and bridges multidisciplinary scientific domains, let's connect on Launchpad.
+            </div>
+
+            <!-- Technical Skills Matrix -->
+            <div>
+              <span class="blueprint-stamp" style="margin-bottom: 12px;">TECHNICAL COMPETENCIES MATRIX</span>
+              
+              <div class="skills-matrix">
+                <div class="skill-category">
+                  <h5>AI & Machine Learning</h5>
+                  <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">RAG Pipelines</span>
+                    <span class="skill-tag">Vector DBs</span>
+                    <span class="skill-tag">NLP Fact-Checking</span>
+                    <span class="skill-tag">Hallucination Audits</span>
+                  </div>
+                </div>
+
+                <div class="skill-category">
+                  <h5>Cloud & Infrastructure</h5>
+                  <div class="skill-tags">
+                    <span class="skill-tag">AWS / GCP</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">REST / gRPC APIs</span>
+                    <span class="skill-tag">Microservices</span>
+                    <span class="skill-tag">CI/CD Pipelines</span>
+                  </div>
+                </div>
+
+                <div class="skill-category">
+                  <h5>Frontend & Geospatial</h5>
+                  <div class="skill-tags">
+                    <span class="skill-tag">Modern JavaScript</span>
+                    <span class="skill-tag">HTML5 Canvas / 60 FPS</span>
+                    <span class="skill-tag">Web Audio API</span>
+                    <span class="skill-tag">Leaflet / GIS</span>
+                    <span class="skill-tag">UI/UX Systems</span>
+                    <span class="skill-tag">Responsive Design</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       Footer
+       ==================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--text-espresso);">The Living Blueprint</h4>
+          <p style="font-size: 0.85rem; color: var(--text-clay); margin-top: 4px;">
+            Official Proof of Work Platform for the New York Academy of Sciences (NYAS) 2026–2027 Sprint.
+          </p>
+        </div>
+        <div style="display: flex; gap: 16px; align-items: center;">
+          <a href="#hero" class="btn btn-secondary" style="font-size: 0.8rem; padding: 8px 14px;">Back to Top ↑</a>
+          <a href="https://github.com/MustafaEnes123/nyas_proof_of_work" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 0.8rem; padding: 8px 14px;">GitHub Repo ↗</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>Designed & Engineered by <strong>Mustafa Enes Kayacı</strong></div>
+        <div>SPECIFICATION: NYAS-2026-MVP // CLIENT-SIDE SPA // v1.0.0</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: Modular Architecture with Single-Door index.html Entry -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/living-bg.js"></script>
+  <script src="js/bci-sim.js"></script>
+  <script src="js/fact-checker.js"></script>
+  <script src="js/retrofit-mapper.js"></script>
+</body>
+</html>
